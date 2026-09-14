@@ -16,7 +16,8 @@ followed by the schema, queries, views and transaction demonstrations.
 - queries.sql - Contains the queries for Deliverable F.
 - views.sql - Contains the five views for Deliverable G.1.
 - transactions.sql - Contains the transaction demonstrations for Deliverable G.3.
-- Scrollsense_generated.db - Generated SQLite database.
+- ER - connections
+- ER_full.drawio
 - README.md
 
 ## Requirements
