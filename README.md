@@ -10,7 +10,6 @@ followed by the schema, queries, views and transaction demonstrations.
 
 ## Project Structure
 
-```text
 
 - data_generator.py - Generates the database data.
 - schema.sql - Creates the database schema and constraints.
@@ -20,7 +19,7 @@ followed by the schema, queries, views and transaction demonstrations.
 - Scrollsense_generated.db - Generated SQLite database.
 - README.md
 
-** Requirements**
+## Requirements
 
 
 The following are required:
@@ -32,11 +31,11 @@ DBeaver (recommended for running and inspecting the database)
 No external Python packages are required unless specified in the generator
 file.
 
-**Generate the database**
+## Generate the database
 
 python3 data_generator.py --out Scrollsense_generated.db --scale 1
 
-**Open the Database**
+## Open the Database
 
 Open Scrollsense_generated.db in DBeaver as a SQLite database.
 
@@ -49,7 +48,7 @@ SELECT COUNT(*) FROM users;
 
 The result should be greater than zero.
 
-**Run schema.sql**
+## Run schema.sql
 
 Open schema.sql in DBeaver and execute the schema statements.
 
@@ -59,7 +58,7 @@ objects required by the assignment.
 If the database was generated using generator.py with the schema already
 applied, this step may already have been performed by the generator.
 
-**Run queries.sql**
+## Run queries.sql
 
 Open queries.sql in DBeaver.
 
@@ -74,14 +73,14 @@ Record the number of returned rows.
 Record the first five rows where required.
 Record the execution time.
 
-**Important**
+## Important
 
 Do not execute all the queries together when collecting the results.
 Some queries are demonstrations of different SQL behaviours, and executing
 multiple statements together can make it difficult to identify the individual
 result and runtime.
 
-**Run views.sql**
+## Run views.sql
 
 Open views.sql in DBeaver and create the five views:
 
@@ -109,12 +108,12 @@ v_creator_tier_current    750
 v_video_daily_engagement  216486
 v_turn_cost               6989
 
-**Run transactions.sql**
+## Run transactions.sql
 
 The transaction demonstrations should also be executed carefully and
 individually.
 
-**T1 - Retraction**
+## T1 - Retraction
 
 T1 demonstrates that a failure between two related operations can be rolled
 back so that the database does not remain partially updated.
@@ -133,7 +132,7 @@ verification query
 
 Do not commit the transaction after the deliberate failure.
 
-**T2 - Moderation Decision**
+## T2 - Moderation Decision
 
 T2 requires two separate connections to the same SQLite database.
 
