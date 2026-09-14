@@ -11,7 +11,7 @@ followed by the schema, queries, views and transaction demonstrations.
 ## Project Structure
 
 
-- data_generator.py - Generates the database data.
+- generate_data.py - Generates the database data.
 - schema.sql - Creates the database schema and constraints.
 - queries.sql - Contains the queries for Deliverable F.
 - views.sql - Contains the five views for Deliverable G.1.
@@ -33,7 +33,7 @@ file.
 
 ## Generate the database
 
-python3 data_generator.py --out Scrollsense_generated.db --scale 1
+python3 generate_data.py --out Scrollsense_generated.db --scale 1
 
 ## Open the Database
 
