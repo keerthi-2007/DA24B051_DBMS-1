@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-ScrollSense - generate_data.py
-
-Generates sample data for the physical implementation.
-The database is created from schema.sql and all generated data
-is inserted inside one transaction.
-
-Example:
-    python3 generate_data.py --out scrollsense.db --scale 1
-"""
 
 import argparse
 import json
@@ -38,23 +28,18 @@ END_DATE = datetime(2026, 9, 13, tzinfo=timezone.utc)
 
 
 def to_iso(dt):
-    """Convert a datetime to the timestamp format used by the schema."""
+
     return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def random_time(rng, start=START_DATE, end=END_DATE):
-    """Return a random timestamp between two dates."""
+
     total_seconds = (end - start).total_seconds()
     return start + timedelta(seconds=rng.uniform(0, total_seconds))
 
 
 def random_time_of_day(rng, day):
-    """
-    Generate a timestamp for a particular day.
 
-    The hour weights make activity higher during the evening,
-    which gives the impression data a daily usage pattern.
-    """
     hour_weights = [
         1, 1, 1, 1, 1, 1,
         2, 3, 3, 3, 3, 4,
@@ -74,7 +59,6 @@ def random_time_of_day(rng, day):
     )
 
 def make_id(prefix):
-    """Create a short readable ID with a prefix."""
     return f"{prefix}_{uuid.uuid4().hex[:12]}"
 
 def generate_data(connection, rng, scale):
@@ -933,7 +917,7 @@ def generate_data(connection, rng, scale):
         model_prices[model] = price_periods
 
     def find_price(model, timestamp):
-        """Find the pricing row active at a particular time."""
+       
         for price_id, start, end in model_prices[model]:
 
             if (
@@ -948,7 +932,7 @@ def generate_data(connection, rng, scale):
         return model_prices[model][-1][0]
 
     def find_prompt_version(template_name, timestamp):
-        """Find the prompt version active at a particular time."""
+       
         for prompt_id, start, end in prompt_versions[template_name]:
 
             if (
